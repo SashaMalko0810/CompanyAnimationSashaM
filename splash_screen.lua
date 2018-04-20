@@ -22,7 +22,7 @@ local scene = composer.newScene( sceneName )
 -----------------------------------------------------------------------------------------
  
 -- The local variables for this scene
-local rosella
+local roseOne
 local scrollXSpeed = 8
 local backgroundImage = display.newImageRect("Images/BackgroundColour.png", 2048,1536)
 
@@ -35,8 +35,8 @@ local chimesSoundsChannel
 --------------------------------------------------------------------------------------------
 
 -- The function that moves the butterfly across the screen
-local function moveRosella()
-    rosella.x = rosella.x + scrollXSpeed
+local function moveRose()
+    roseOne.x = roseOne.x + scrollXSpeed
 end
 
 -----------------------------------------------------------------------------------------
@@ -52,14 +52,14 @@ function scene:create( event )
     local backgroundImage = display.newImageRect("Images/BackgroundColour", 2048,1536)
 
     -- Insert the butterfly image
-    rosella = display.newImageRect("Images/CompanyLogoSasha.png", 1000, 1000)
+    roseOne = display.newImageRect("Images/RoseOne.png", 10, 10)
 
     -- set the initial x and y position of the butterfly
-    rosella.x = 10
-    rosella.y = display.contentHeight/2
+    roseOne.x = 1000
+    roseOne.y = display.contentHeight/2
 
     -- Insert objects into the scene group in order to ONLY be associated with this scene
-    sceneGroup:insert( rosella )
+    sceneGroup:insert( roseOne )
 
 end -- function scene:create( event )
 
@@ -87,7 +87,7 @@ function scene:show( event )
         chimesSoundsChannel = audio.play(chimesSounds )
 
         -- Call the moveButterfly function as soon as we enter the frame.
-        Runtime:addEventListener("enterFrame", moveRosella)
+        Runtime:addEventListener("enterFrame", moveRose)
 
         -- Go to the main menu screen after the given time.
         timer.performWithDelay ( 3000, gotoMainMenu)          
