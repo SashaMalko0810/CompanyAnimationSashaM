@@ -24,6 +24,7 @@ local scene = composer.newScene( sceneName )
 -- The local variables for this scene
 local rosella
 local scrollXSpeed = 8
+local backgroundImage = display.newImageRect("Images/BackgroundColour.png", 2048,1536)
 
 --Sounds
 local chimesSounds = audio.loadSound("Sounds/Chimes.mp3")
@@ -48,7 +49,8 @@ function scene:create( event )
     -- Creating a group that associates objects with the scene
     local sceneGroup = self.view
 
-    local backgroundImage = display.newImageRect("Images/Capture.png", 2048,1536)
+    local backgroundImage = display.newImageRect("Images/BackgroundColour", 2048,1536)
+
     -- Insert the butterfly image
     rosella = display.newImageRect("Images/CompanyLogoSasha.png", 1000, 1000)
 
