@@ -311,6 +311,9 @@ function scene:create( event )
     --set the colour of the loadng text
     loadingText:setFillColor(91/255, 41/255, 119/255)
 
+    -- insert all the images for the splash screen into its scene group
+    sceneGroup:insert( rosella )
+
 end 
 
 --------------------------------------------------------------------------------------------
