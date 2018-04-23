@@ -36,6 +36,7 @@ local roseEleven
 local roseTwelve
 local rosella
 local backgroundColour
+local backgroundColour2
 local scrollXSpeed = 8
 local loadingText
 
@@ -144,10 +145,14 @@ local function moveRosella()
     --make the rainbow halo spin
     backgroundColour.rotation = backgroundColour.rotation + 5
 
-    --make the text and rainbow halo disappear when the roses get to the edge of the screen
+    --make the sunlight beam spin
+    backgroundColour2.rotation = backgroundColour2.rotation + 5
+
+    --make the text, rainbow halo, and sunlight beam disappear when the roses get to the edge of the screen
     if (roseOne.x > 1024) then
-       backgroundColour.isVisible = false
-       loadingText.isVisible = false
+      backgroundColour.isVisible = false
+      loadingText.isVisible = false
+      backgroundColour2.isVisible = false
    end
 end
 
@@ -287,6 +292,10 @@ function scene:create( event )
 
     -- Insert the rosella image
     rosella = display.newImageRect("Images/Rosella.png", 400, 150)
+    --make the rosella name have a colour offset effect
+    rosella.fill.effect = "filter.colorChannelOffset"
+    rosella.fill.effect.xTexels = 16
+    rosella.fill.effect.yTexels = 16
 
     -- set the initial x and y position of the rosella text
     rosella.x = 450
@@ -306,13 +315,42 @@ function scene:create( event )
     backgroundColour.fill.effect.aspectRatio = ( backgroundColour.width / backgroundColour.height )
     backgroundColour.fill.effect.seed = 1
 
+    --Insert the background colour image
+    backgroundColour2 = display.newImageRect("Images/BackgroundColour.png", 100, 100)
+
+    -- set the initial x and y position of the background colour image
+    backgroundColour2.x = 450
+    backgroundColour2.y = 550
+
+    --make the background colour have beams of sunlight
+    backgroundColour2.fill.effect = "generator.sunbeams"
+    backgroundColour2.fill.effect.posX = 0.5
+    backgroundColour2.fill.effect.posY = 0.5
+    backgroundColour2.fill.effect.aspectRatio = ( backgroundColour2.width / backgroundColour2.height )
+    backgroundColour2.fill.effect.seed = 0
+
     --create loading text 
     loadingText = display.newText("Loading...", 460, 630, nil, 30)
     --set the colour of the loadng text
     loadingText:setFillColor(91/255, 41/255, 119/255)
 
     -- insert all the images for the splash screen into its scene group
+    sceneGroup:insert( roseOne )
+    sceneGroup:insert( roseTwo )
+    sceneGroup:insert( roseThree )
+    sceneGroup:insert( roseFour )
+    sceneGroup:insert( roseFive )
+    sceneGroup:insert( roseSix )
+    sceneGroup:insert( roseSeven )
+    sceneGroup:insert( roseEight )
+    sceneGroup:insert( roseNine )
+    sceneGroup:insert( roseTen )
+    sceneGroup:insert( roseEleven )
+    sceneGroup:insert( roseTwelve )
     sceneGroup:insert( rosella )
+    sceneGroup:insert( backgroundColour )
+    sceneGroup:insert( backgroundColour2 )
+    sceneGroup:insert( loadingText )
 
 end 
 
