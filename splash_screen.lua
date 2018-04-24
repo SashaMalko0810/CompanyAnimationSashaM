@@ -150,12 +150,11 @@ local function moveRosella()
 
     --make the text, rainbow halo, and sunlight beam disappear when the roses get to the edge of the screen
     if (roseOne.x > 1024) then
-      backgroundColour.isVisible = false
-      loadingText.isVisible = false
-      backgroundColour2.isVisible = false
+        backgroundColour.isVisible = false
+        loadingText.isVisible = false
+        backgroundColour2.isVisible = false
    end
 end
-
 
 -----------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
@@ -376,9 +375,10 @@ function scene:show( event )
     elseif ( phase == "did" ) then
         -- start the splash screen music
         horseSoundChannel = audio.play(horseSound)
-
+        
         -- Call the moveRosella function as soon as we enter the frame.
-        Runtime:addEventListener("enterFrame", moveRosella)          
+        Runtime:addEventListener("enterFrame", moveRosella)   
+
     end
 end 
 
