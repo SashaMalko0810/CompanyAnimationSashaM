@@ -166,7 +166,7 @@ function scene:create( event )
     -- Creating a group that associates objects with the scene
     local sceneGroup = self.view
 
-    -- set the background to be blue
+    -- set the background colour
     display.setDefault("background", 163/255, 205/255, 241/255)
 
     -- Insert the rose image
@@ -314,14 +314,14 @@ function scene:create( event )
     backgroundColour.fill.effect.aspectRatio = ( backgroundColour.width / backgroundColour.height )
     backgroundColour.fill.effect.seed = 1
 
-    --Insert the background colour image
+    --Insert a second background colour image
     backgroundColour2 = display.newImageRect("Images/BackgroundColour.png", 100, 100)
 
-    -- set the initial x and y position of the background colour image
+    -- set the initial x and y position of the second background colour image
     backgroundColour2.x = 450
     backgroundColour2.y = 550
 
-    --make the background colour have beams of sunlight
+    --make the background colour have a beam of sunlight
     backgroundColour2.fill.effect = "generator.sunbeams"
     backgroundColour2.fill.effect.posX = 0.5
     backgroundColour2.fill.effect.posY = 0.5
@@ -373,10 +373,10 @@ function scene:show( event )
     -----------------------------------------------------------------------------------------
 
     elseif ( phase == "did" ) then
-        -- start the splash screen music
+        -- start the splash screen sound effect
         horseSoundChannel = audio.play(horseSound)
         
-        -- Call the moveRosella function as soon as we enter the frame.
+        -- Call the moveRosella function as soon as we enter the frame
         Runtime:addEventListener("enterFrame", moveRosella)   
 
     end
